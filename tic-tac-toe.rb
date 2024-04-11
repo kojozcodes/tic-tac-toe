@@ -49,7 +49,19 @@ class Board
 end
 
 class Player
+  attr_reader :name, :symbol
 
+  def initialize(name, symbol)
+    @name = name
+    @symbol = symbol
+  end
+
+  def make_move
+    puts "#{@name}, it's your turn. Enter the row (1-3) and column (1-3) to place your #{@symbol}:"
+    print "> "
+    row, col = gets.chomp.split.map(&.to_i)
+    [row - 1, col - 1]
+  end
 end
 
 
